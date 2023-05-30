@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang= "pt-br">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <title>Decodificador</title>
+    <link rel= "stylesheet" href="style.css">
+    <link rel= "stylesheet" href="reset.css">
+        <style> @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap'); </style>
+  </head>
+
+  <body>
+        <main>
+            <div class="container">
+                <header>
+                    
+                </header>
+
+                <section class="entrada-mensagem">
+                    <textarea class="entrada" placeholder="Digite seu texto"></textarea>
+                  
+                    <div class="informação">
+                        
+                        <p>Apenas letras minúsculas e sem acento</p>
+                    </div> 
+                    
+                    <div class="decodificadores">
+                        <button id="button-cripto">Criptografar</button>
+                        <button id="button-descripto">Descriptografar</button>
+                    </div>
+
+                </section>
+
+                <section class="saida-mensagem">
+                    <div class="tela-inicial">  
+                        
+                        
+                        <p>Digite um texto que você deseja criptografar ou descriptografar</p>
+                    </div> 
+                    
+                    <div class="tela-final">
+                        <textarea class="saida"></textarea>
+                        <button id="button-copy">Copiar</button>
+                    </div>
+                </section>
+            </div>
+
+            <script src="script.js"></script>
+        </main>
+        
+    </body>
+
+<style>
+*{
+
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: #8A2BE2;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+}
+
+.container {
+    display: flex;
+    height: 92vh;
+    justify-content: center;
+    margin-top: 4vh;
+}
+
+header{
+    display: flex;
+    height: 70px;
+}
+
+.entrada-mensagem{
+    margin-left: 5%;
+    width: 700px;
+}
+
+.entrada{
+    width: 100%;
+    height: 50vh;
+    margin: 80px 0 10vh 0;
+    background:  #BA55D3;
+    border: none;
+    font-style: normal;
+    font-size: 32px;
+    line-height: 150%;
+    color: #0A3871;  
+}
+
+.entrada::placeholder{
+    color: #D8BFD8;  
+}
+
+.informação{
+    display: flex;
+    margin-bottom: 16px;
+}
+
+.informação p{
+    width: 228px;
+    height: 18px;
+    font-size: 12px;
+    line-height: 150%;
+    color: #EE82EE;
+    opacity: 0.8;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.decodificadores{
+    display: flex;
+    width: 100%;
+    gap:24px;
+}
+
+#button-cripto, #button-descripto, #button-copy{  
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    height: 67px;
+    width: 90%;
+    border-radius: 24px;
+    padding: 24px;
+    border: 1px solid #0A3871;
+    cursor: pointer;
+}
+
+#button-cripto{
+    background: #8B008B;
+    color: #FFFFFF;
+}
+
+#button-descripto{
+    background: #4B0082;
+    color: #FFFAFA;   
+}
+
+.saida-mensagem{
+    width: 28%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 80px;
+    padding: 0 4.5vh;
+    background: #DDA0DD;
+    box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
+    border-radius: 32px;
+}
+
+.saida-mensagem:focus{
+    outline: none;
+}
+
+.tela-inicial img{
+    width: 100%;
+}
+
+.tela-inicial h1, p{
+    margin: 10px 0;
+    flex: none;
+    align-self: stretch;
+    flex-grow: 0;
+    text-align: center;
+}
+
+.tela-inicial h1{
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 120%;
+    color: #343A40;
+}
+
+.tela-inicial p{
+    height: 48px;
+    font-size: 16px;    
+    line-height: 150%;
+    color: #495057;
+    order: 1;
+}
+
+.saida{
+    width: 100%;
+    height: 70vh;
+    color: #495057;
+    font-size: 24px;
+    line-height: 150%;
+    border: none;
+    display: none;
+}
+
+#button-copy{
+    width: 100%;
+    background: #FFFFFF;
+    color: #0A3871;
+    display: none;
+    margin-top: 32px;
+}
+
+
+@media screen and (max-width:1000px){
+    .container {
+        flex-direction:column; 
+        width:90%; 
+        height: 100%;
+    }
+    .entrada-mensagem {
+        margin:20px 0;
+        width:100%;
+    }
+    .entrada{
+        height: 20vh;
+    }
+    .tela-inicial img {
+        display:none;
+    }
+    .tela-final {
+        width: 100%;
+    }
+    .saida-mensagem {
+        width:100%;
+        margin-left:0;
+        display:block;
+    }
+    .saida{
+        height: 25vh;
+    }
+
+}
+
+@media screen and (max-width:480px){
+    .container {
+        flex-direction:column; 
+        width:90%;
+        height: 100%;
+        margin-left: 5%;
+    }
+    .entrada-mensagem {
+        margin:20px 0;
+        width:100%;
+    }
+    .entrada{
+        height: 20vh;
+    }
+    .tela-inicial img {
+        display:none;
+    }
+    .tela-final {
+        width: 100%;
+    }
+    .saida-mensagem {
+        width:90%;
+        margin-left:0;
+        display:block;
+    }
+    .saida{
+        height: 25vh;
+    }
+    .decodificadores{
+        display:block;
+    }
+    #button-cripto{
+        margin-bottom: 14px;
+    }
+   
+}
+</style>
+
+</html>
+<script>
+function criptografar() {
+    var textoEntrada = document.getElementsByClassName("entrada")[0];
+    var textoSaida = document.getElementsByClassName("saida")[0];
+    
+    var novoTexto = textoEntrada.value
+        .replace(/e/g, "enter")
+        .replace(/i/g, "imes")
+        .replace(/a/g, "ai")
+        .replace(/o/g, "ober")
+        .replace(/u/g, "ufat");
+
+    textoSaida.value = novoTexto;
+}
+var buttonCripto = document.getElementById("button-cripto");
+buttonCripto.onclick = function () {
+    criptografar();
+    exibirSaidaMensagem();
+};
+
+function descriptografar() {
+    var textoEntrada = document.getElementsByClassName("entrada")[0];
+    var textoSaida = document.getElementsByClassName("saida")[0];
+    
+    var novoTexto = textoEntrada.value
+        .replace(/enter/g, "e")
+        .replace(/imes/g, "i")
+        .replace(/ai/g, "a")
+        .replace(/ober/g, "o")
+        .replace(/ufat/g, "u");
+
+    textoSaida.value = novoTexto;
+}
+var buttonDescripto = document.getElementById("button-descripto");
+buttonDescripto.onclick = function () {
+    descriptografar();
+    exibirSaidaMensagem();
+};
+
+function copiarParaAreadeTransferencia() {
+    var textoSaida = document.getElementsByClassName("saida")[0];
+    var standBy = textoSaida.value;
+    
+    navigator.clipboard.writeText(standBy)
+}
+var buttonCopy = document.getElementById("button-copy");
+buttonCopy.onclick = copiarParaAreadeTransferencia;
+
+function exibirSaidaMensagem() {
+    var buttonCopy = document.getElementById("button-copy");
+    buttonCopy.style.display = "block";
+    var textoSaida = document.getElementsByClassName("saida")[0];
+    textoSaida.style.display = "block";
+    var telaInicial = document.getElementsByClassName("tela-inicial")[0];
+    telaInicial.style.display = "none";
+}
+
+</script>
